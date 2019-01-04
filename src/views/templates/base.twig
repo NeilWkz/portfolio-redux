@@ -1,0 +1,53 @@
+{% include '../partials/head.twig' %}
+<?php
+ /*Check cookie for intro */
+if (isset($_COOKIE["noNeilsIntro"])|| isset($_GET['cv']) ) {
+  $class ="brdr-black";
+}
+/*Check parameters played*/
+if (isset($_GET['played']) && isset($_GET['contact']))  {
+  $class ="brdr-black contact-go";
+}
+?>
+<body class="<?php echo $class;?>">
+
+<!-- Hi There, welcome to my CV page
+I'm no longer available for Hire!
+       _..._
+      .'     '.      _
+     /    .-""-\   _/ \
+   .-|   /:.   |  |   |
+   |  \  |:.   /.-'-./
+   | .-'-;:__.'    =/
+   .'=  *=|     _.='
+  /   _.  |    ;
+ ;-.-'|    \   |
+/   | \    _\  _\
+\__/'._;.  ==' ==\
+         \    \   |
+         /    /   /
+         /-._/-._/
+         \   `\  \
+          `-._/._/
+
+Thanks for checking out my source code, this page is pretty simple, a couple of things to note:
+* I used a flexbox grid, just for fun. This is not the kind of code I would run on a commercial site, I'd likely import a float-based grid like bootstrap or foundation (at least until CSS Grid is supported in 2017)
+* At launch I'm supporting IE Edge only, I've dropped support for IE10 back, I could have added all the polyfills for SVG and modernized out the VP unit but since I whipped this site up in my spare time I figured ¯\_(ツ)_/¯ I'll add better support going forward.
+
+Check out my CV and if you're hiring Frontend developers Contact Me.
+
+ -->
+{% block pre_nav %}{% endblock %}
+{% include '../partials/top-nav.twig' %}
+
+ {% block content %} Sorry, no content {% endblock %}
+
+
+
+{% include '../partials/footer.twig' %}
+
+{% include '../partials/footer-scripts.twig' %}
+
+</body>
+
+</html>
