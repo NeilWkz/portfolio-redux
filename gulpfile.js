@@ -89,6 +89,8 @@ gulp.task('jshint', function() {
 gulp.task('templates', function() {
     return gulp.src('src/views/*.twig') // run the Twig template parser on all .twig files in the "src" directory
         .pipe(twig({
+
+          // force it to use the php extentions so we can do a little bit of server side stuff
           extname:'.php'
         }))
         .pipe(gulp.dest('dist')); // output the rendered HTML files to the "dist" directory
@@ -99,7 +101,7 @@ gulp.task('watch', function() {
   gulp.watch('src/js/*.js', ['jshint', 'js']);
   gulp.watch('./*.html', ['minify-html']);
   gulp.watch('images/*', ['imgmin']);
-  gulp.watch('views/*', ['templates']);
+  gulp.watch('views/**', ['templates']);
 });
 
 gulp.task('imgmin', function () {
